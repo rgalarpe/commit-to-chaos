@@ -1,0 +1,194 @@
+@media screen and (max-width: 700px) {
+    .donation-page {
+        max-width: 85%;
+    }
+
+    .preser-btn {
+        width: 23%;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .home-page,
+    .suggest-company {
+        width: 90%;
+        padding: 2rem 1rem 3rem 1rem;
+    }
+
+    .limit {
+        width: 98%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .balance>h2 {
+        font-size: 16px;
+    }
+    .balance > h1 {
+        font-size: 33px;
+    }
+
+    .limit {
+        width: 98%;
+    }
+
+    .balance-btn{
+        width: 99%;
+    }
+
+    .pay-btn,
+    .deposit-btn {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .header{
+        width: 92%;
+    }
+
+    .profile-content,
+    .nav-icon {
+        width: 11rem;
+    }
+
+    .profile-content span {
+        width: 3rem;
+        height: 3.1rem;
+    }
+
+    .profile-content span img {
+        width: 5rem;
+    }
+
+    .profile-content >h3 {
+        font-size: 16.5px;
+        letter-spacing: 1.5px;
+        font-weight: 400;
+        font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    .nav-icon {
+        width: 8.5rem;
+    }
+
+    .nav-icon>i {
+        font-size: 20px;
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    .home-page,
+    .suggest-company {
+        padding: 1.5rem 1rem 2rem 1rem;
+        margin-top: 1rem;
+    }
+
+    .view-all h2 {
+        font-size: 19px;
+    }
+
+    .view-all span {
+        font-size: 15px;
+    }
+
+    .list-company {
+        padding-top: 1.3rem;
+    }
+
+    .list-company li {
+        padding: 5px 12px 5px 12px;
+    }
+
+    .detail {
+        gap: 10px;
+    }
+
+    .detail img {
+        width: 49px;
+        height: 49px;
+        padding: 9px;
+    }
+
+    .detail h2 {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+
+    .donate-now button {
+        font-size: 14px;
+    }
+
+    .donation-header {
+        gap: 4px;
+    }
+
+    .donation-page {
+        max-width: 92%;
+    }
+
+    .back-button {
+        gap: 2px;
+        font-size: 17px;
+        padding: 7px 19px 7px 5px;
+    }
+
+    .back-button i {
+        font-size: 21px;
+    }
+
+    .donation-title {
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 28px;
+    }
+
+    .donation-card {
+        padding: 16px;
+        gap: 13px;
+    }
+
+    .donation-icon {
+        font-size: 28px;
+        padding: 12px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    .form-select,
+    .form-input {
+        padding: 11px 2px 11px 9px;
+        font-size: 14px;
+    }
+
+    .preset-amounts {
+        margin: 16px auto auto auto;
+    }
+
+    .preser-btn {
+        width: 21%;
+        height: 2.6rem;
+        font-size: 14px;
+    }
+
+    .donate-submit {
+        margin-top: 23px;
+        padding: 12px 16px;
+        border-radius: 7px;
+        font-size: 15px;
+        gap: 9px;
+        letter-spacing: 0.9px;
+    }
+
+    .toast-contanier{
+        bottom: 20px;
+        right: 20px;
+    }
+}

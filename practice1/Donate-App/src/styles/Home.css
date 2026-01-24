@@ -1,0 +1,350 @@
+.home-page,
+.suggest-company {
+  width: 85%;
+  margin: auto;
+  padding: 2rem 2rem 3rem 2rem;
+  margin-top: 1.3rem;
+  background: var(--circle-box);
+  box-shadow: 0px 0px 2px 0px var(--box-shadow);
+  border-radius: 20px;
+}
+
+.balance > h2 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--light-text);
+}
+
+.balance > h1 {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.limit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 24rem;
+  margin-top: 2rem;
+  border-bottom: 0.8px solid #7b7b7b;
+  padding-bottom: 8px;
+}
+
+.limit > span {
+  font-size: 17px;
+  font-weight: 200;
+  font-family: "Poppins", sans-serif;
+}
+
+.balance-btn {
+  width: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pay-btn,
+.deposit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--text-color);
+  width: 12rem;
+  height: 3rem;
+}
+
+.pay-btn button,
+.deposit-btn button {
+  background: none;
+  border: none;
+  color: var(--text-back);
+  font-size: 17px;
+  letter-spacing: 0.8px;
+}
+
+.pay-btn i,
+.deposit-btn i {
+  font-size: 18px;
+  background: var(--text-back);
+  color: var(--text-color);
+  transition: 0.3s ease;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.view-all {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+
+.view-all h2 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.view-all span {
+  font-size: 17px;
+  color: var(--light-text);
+  cursor: pointer;
+}
+
+.list-company {
+  list-style: none;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.list-company li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 15px 6px 15px;
+  background: var(--light-white);
+  border-radius: 12px;
+  box-shadow: 0px 0px 0px 1px var(--light-box-shadow);
+  transition: 0.3s ease;
+}
+
+.list-company li:hover {
+  transform: translateY(-1px);
+  background: var(--light-hover);
+  transition: 0.2s ease;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detail img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  border-radius: 47px;
+  padding: 8px;
+  background: #fff;
+}
+
+.detail h2 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+}
+
+.donate-now button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: #870eff;
+    color: #fff;
+    border: none;
+    width: 6.8rem;
+    height: 2.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-size: 15px;
+    letter-spacing: 0.5px ;
+}
+
+.donate-now i {
+    font-size: 20px;
+    color: white;
+}
+
+.donation-page {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 2rem;
+  font-family: system-ui, sans-serif;
+}
+
+.donation-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--circle-box);
+  border: none;
+  cursor: pointer;
+  font-size: 19px;
+  color: var(--text-color);
+  width: fit-content;
+  padding: 10px 22px 10px 12px;
+  border-radius: 5px;
+  letter-spacing: 0.7px;
+  box-shadow: 0px 0px 1px 1px var(--box-shadow);
+}
+
+.back-button i {
+  font-size: 23px;
+}
+
+.donation-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+  letter-spacing: 0.4px;
+}
+
+.donation-card {
+  background-color: var(--circle-box);
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.donation-icon {
+  font-size: 35px ;
+  text-align: center;
+  color: var(--icon-color);
+  width: fit-content;
+  margin: auto;
+  padding: 14px;
+  background-color: var(--icon-bg);
+  border-radius: 50%;
+}
+
+.form-label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--light-text);
+  margin-top: 10px;
+}
+
+.form-select,
+.form-input {
+  padding: 13px 2px 13px 11px;
+  font-size: 15px;
+  border-radius: 9px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  width: 100%;
+  transition: border 0.2s ease;
+  letter-spacing: 0.6px;
+}
+
+.form-select:focus,
+.form-input:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.preset-amounts {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px auto auto auto;
+  width: 98%;
+}
+
+.preser-btn {
+  background: #f4f4f4;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.preser-btn:hover {
+  background: #8d8b8b;
+}
+
+.donate-submit {
+  margin-top: 12px;
+  background: var(--icon-bg);
+  color: var(--icon-color);
+  border: none;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  transition:  opacity 0.2s ease;
+}
+
+.donate-submit:hover {
+  opacity: 0.9;
+}
+
+.donate-submit i {
+  font-size: 20px;
+}
+
+.toast-contanier{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: #222;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  animation: slideUp 0.4s ease, fadeOut 0.3s ease 1.7s forwards ;
+  z-index: 99999;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.toast-contanier.error {
+  background: #ff1326;
+}
+
+.empty-state {
+  text-align: center;
+}
+
+.empty-state> h3{
+  margin-top: 0.5rem;
+  font-size: 22px;
+  letter-spacing: 0.8px;
+}
+
+.empty-state> p{
+  letter-spacing: 0.7px;
+  color: var(--light-text);
+  margin-top: 1rem;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(55px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+}
