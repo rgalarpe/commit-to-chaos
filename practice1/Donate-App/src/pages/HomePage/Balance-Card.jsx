@@ -1,14 +1,17 @@
 import BalanceButton from "./Action-Button";
 import SuggestedCompany from "./Suggested-Companies";
 import '../../styles/Home.css'
+import { useAppContext } from "../../context/AppContext";
 
 export default function BalanceCard() {
+
+    const {balance} = useAppContext();
   return (
     <section>
         <main className="home-page">
             <div className="balance">
                 <h2>Available on card</h2>
-                <h1>$5,750.20</h1>
+                <h1>${balance.toLocaleString()}</h1>
 
             </div>
 

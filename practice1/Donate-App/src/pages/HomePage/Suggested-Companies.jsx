@@ -1,18 +1,18 @@
 import CompanyList from "./CompanyList";
 import { companies } from "./Companies";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
 export default function SuggestedCompany() {
-//   const navigate = useNavigate()
+  const navigate = useNavigate()
   return (
     <CompanyList
       title="Company"
       actionLabel="View All"
       companies={companies}
-      renderRight={(company) => (
-        <button>
-         {/* onClick={() => navigate(`/donate?company=${company.name}`)} */}
-        
+      renderRight={(item) => (
+        <button onClick={() => navigate(`/donate?company=${item.name}`)}>
+
          <i className="bx bx-arrow-up-right"></i>
           Donate
         </button>
