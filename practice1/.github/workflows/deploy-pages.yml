@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ "silentcommit" ]
+  pull_request:
+    branches: [ "silentcommit" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: practice1/Donate-App
+        run: npm ci
+
+      - name: Build (Vite) with repo base
+        working-directory: practice1/Donate-App
+        run: npm run build -- --base=/commit-to-chaos/
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: practice1/Donate-App/dist
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
