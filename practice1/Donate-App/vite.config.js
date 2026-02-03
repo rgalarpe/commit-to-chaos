@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/commit-to-chaos/',
+  base: '/commit-to-chaos/practice1/Donate-App/',
   plugins: [react()],
 })
