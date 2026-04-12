@@ -1,22 +1,19 @@
 import React from 'react'
+import UserTable from './UserTable'
 
-interface User {
-    id: number;
-    name: string;
-    username: string;
+interface Props {
+    searchParams: Promise<{ sortOrder: number }>;
 }
 
-const UsersPage = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users', 
-        { next: { revalidate: 30 } });
-    const users: User[] = await res.json();
+const UsersPage = async ({ searchParams }: Props) => {
+  const { sortOrder } = await searchParams;
+    
   return (
       <>
-      <h1>Users</h1>
-      <p>{new Date().toLocaleString()}</p>
-        <ul>
-            { users.map(user => <li key={user.id}>{user.name} | ({user.username})</li>) }
-        </ul>
+      <h1>Users {sortOrder}</h1>
+      <UserTable sortOrder={sortOrder} />
+      <p className="text-right text-sm italic mt-4 mb-2">as of {new Date().toLocaleString()}</p>
+        
       </>
   )
 }
