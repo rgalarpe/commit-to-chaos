@@ -1,8 +1,8 @@
-import { z } from "zod";
+import { email, z } from "zod";
 
 const UserSchema = z.object({
-    id: z.number(),
-    name: z.string().min(3).max(1)
+    name: z.string().min(3).max(20),
+    email: z.string().email()
 });
 
 export default UserSchema;

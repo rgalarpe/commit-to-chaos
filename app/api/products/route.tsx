@@ -1,12 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import ProductSchema from "./schema";
+import { prisma } from "@/prisma/client";
 
-export function GET(request: NextRequest) {
-    return NextResponse.json([
-        { id: 1, name: 'Biscuit', price: 10 },
-        { id: 2, name: 'Soda', price: 20 },
-        { id: 3, name: 'Ham', price: 30 },
-    ]);
+export async function GET() {
+    const products = await prisma.product.findMany();
+    return NextResponse.json(products);
 }
 
 export async function POST(request: NextRequest) {
@@ -16,7 +14,14 @@ export async function POST(request: NextRequest) {
         if (!validation.success) {
             return NextResponse.json({ error: validation.error.issues[0].message }, { status: 400 });
         }
-        return NextResponse.json({ id: 4, name: body.name, price: body.price }, { status: 201 });
+        const createProduct = await prisma.product.create({
+            data: {
+                name: body.name,
+                price: body.price
+            }
+        });
+        
+        return NextResponse.json(createProduct, { status: 201 });
     } catch {
         return NextResponse.json({ error: 'Invalid or empty body' }, { status: 400 });
     } 
