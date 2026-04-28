@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.11.2",
     "@prisma/client": "^5.22.0",
+    "@prisma/extension-accelerate": "^2.0.2",
     "@types/node": "25.4.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
