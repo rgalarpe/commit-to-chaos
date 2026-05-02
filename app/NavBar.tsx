@@ -12,8 +12,12 @@ const NavBar = () => {
       <Link href='/' className='mr-5'>Next.js</Link>
       <Link href='/users' className='mr-5'>Users</Link>
       {status === 'loading' && <Loading />}
-      {status === 'authenticated' && <div>Hello {session.user!.name!.split(' ')[0]}
-        <Link href='/api/auth/signout' className='ml-5'>Sign Out</Link></div>}
+      {status === 'authenticated' && (
+        <div>
+          {session.user?.name && <span>Hello {session.user.name.split(' ')[0]} </span>}
+          <Link href='/api/auth/signout' className={session.user?.name ? 'ml-5' : ''}>Sign Out</Link>
+        </div>
+      )}
 
       {status === 'unauthenticated' && (
         <Link href='/api/auth/signin' className='mr-5'>Sign In</Link>
