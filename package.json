@@ -26,6 +26,7 @@
     "next": "16.1.6",
     "next-auth": "^4.24.14",
     "next-cloudinary": "^6.17.5",
+    "nodemailer": "^7.0.13",
     "postcss": "^8.5.8",
     "prisma": "^5.22.0",
     "react": "19.2.4",
@@ -39,6 +40,7 @@
   "devDependencies": {
     "@react-email/ui": "^6.0.5",
     "@tailwindcss/postcss": "^4.2.1",
-    "@types/bcryptjs": "^2.4.6"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/nodemailer": "^8.0.0"
   }
 }

@@ -1,15 +1,17 @@
-import WelcomeTemplate from "@/emails/WelcomeTemplate";
-import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
+import { NextRequest, NextResponse } from 'next/server';
+import { transporter } from '@/lib/nodemailer';
+import { render } from '@react-email/render';
+import WelcomeTemplate from '@/emails/WelcomeTemplate';
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+export async function POST(request: NextRequest) {
+    const body = await request.json();
+    const html = await render(<WelcomeTemplate name={body.name} />);
 
-export async function POST() {
-    await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: 'biancababe@tutamail.com',
+    await transporter.sendMail({
+        from: process.env.GMAIL_USER,
+        to: body.email,
         subject: 'Welcome!',
-        react: <WelcomeTemplate name="Biance" />
+        html: html
     });
 
     return NextResponse.json({ message: 'Email sent successfully' });
