@@ -21,10 +21,12 @@ export default function RootLayout({
     <html lang="en" data-theme="synthwave">
       <body className={inter.className}>
         <AuthProvider>
-          <NavBar />
-          <main className='p-3'>
-            {children}
-          </main>
+          <div className="flex flex-col min-h-screen">
+            <NavBar />
+            <main className="flex-1 relative">
+              {children}
+            </main>
+          </div>
         </AuthProvider>
       </body>
     </html>
