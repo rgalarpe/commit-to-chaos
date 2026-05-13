@@ -1,4 +1,4 @@
-# sector-seven
+# 🛰️ sector-seven
 
 - *Secrets buried in digital ruins.*
 - [Link for the live will be here](https://url.com)
