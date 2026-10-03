@@ -1,0 +1,26 @@
+import connexion
+import six
+
+from swagger_server import util
+
+def greetings_get():  # noqa: E501
+    """Returns a list of greetings in different languages.
+
+    :rtype: dict
+    """
+    hellos = {
+        "English": "hello",
+        "Hindi": "namastey",
+        "Spanish": "hola",
+        "French": "bonjour",
+        "German": "guten tag",
+        "Italian": "salve",
+        "Chinese": "nǐn hǎo",
+        "Portuguese": "olá",
+        "Arabic": "asalaam alaikum",
+        "Japanese": "konnichiwa",
+        "Korean": "anyoung haseyo",
+        "Russian": "Zdravstvuyte"
+    }
+
+    return hellos
