@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capitalise with AWS Lambda</title>
+    <style>
+      body { font-family: Verdana; text-align: center; }
+      form { max-width: 500px; margin: 50px auto; padding: 30px 20px; box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5); }
+      .form-control { text-align: left; margin-bottom: 25px; }
+      .form-control input { padding: 10px; display: block; width: 95%; }
+    </style>
+  </head>
+  <body>
+    <form id="form" onsubmit="callLambdaFunction(); return false;">
+      <div class="form-control">
+        <input type="text" id="inputText" placeholder="Enter some text here" />
+      </div>
+      <div class="form-control">
+        <button type="submit" value="submit">Submit</button>
+      </div>
+      <div class="form-control">
+        <input type="text" readonly id="outputText" placeholder="Output will appear here" />
+      </div>
+    </form>
+
+    <script type="text/javascript">
+      // Replace with your real invoke URL, ending in /test/capitalise
+      const API_URL = "https://<redact>.us-east-1.amazonaws.com/test3/capitalise";
+
+      async function callLambdaFunction() {
+        const inputTextValue = document.getElementById("inputText").value;
+        try {
+          const res = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ inputText: inputTextValue }),
+          });
+          const data = await res.json();
+          document.getElementById("outputText").value = data.inputText;
+        } catch (error) {
+          console.log(error);
+          document.getElementById("outputText").value = "Error, check console";
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>
