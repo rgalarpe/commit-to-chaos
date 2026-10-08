@@ -1,0 +1,135 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <style>
+    td:nth-child(even), th:nth-child(even) {
+      background-color: #D6EEEE;
+    }
+  </style>
+  <script>
+    let produrl = "https://prodlist.2fogi62i3kts.us-south.codeengine.appdomain.cloud/"
+    let dealerurl = "https://dealerdetails.2fogi62i3kts.us-south.codeengine.appdomain.cloud/"
+
+    axios.get(produrl + "products")
+      .then(res => {
+        if (Array.isArray(res.data)) {
+          let selEl = document.createElement("select");
+          selEl.setAttribute("id", "selProd");
+          selEl.setAttribute("onChange", "getDealers()");
+          let defaultOpt = document.createElement("option");
+          defaultOpt.setAttribute('value', "--SELECT--");
+          defaultOpt.innerText = "--SELECT--";
+          selEl.appendChild(defaultOpt);
+
+          res.data.forEach(item => {
+            let optEl = document.createElement("option");
+            optEl.setAttribute('value', item.product);
+            optEl.innerText = item.product;
+            selEl.appendChild(optEl);
+          });
+          
+          let prod = document.getElementById('prod_dd');
+          while (prod.firstChild) {
+            prod.removeChild(prod.firstChild);
+          }
+          prod.appendChild(selEl);
+        } else {
+          console.error("Unexpected response structure:", res.data);
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching products:", error);
+      });
+
+    let getDealers = () => {
+      let valToFetch = document.getElementById("selProd").value;
+
+      if (valToFetch != "--SELECT--") {
+        axios.get(produrl + "products/" + valToFetch)
+          .then(res => {
+            if (res.data && Array.isArray(res.data.Dealers)) {
+              let selEl = document.createElement("select");
+              selEl.setAttribute("id", "selDealer");
+              selEl.setAttribute("onChange", "getDealerProductPrice()");
+              let defaultOpt = document.createElement("option");
+              defaultOpt.setAttribute('value', "--SELECT--");
+              defaultOpt.innerText = "--SELECT--";
+              selEl.appendChild(defaultOpt);
+              res.data.Dealers.forEach(element => {
+                let optEl = document.createElement("option");
+                optEl.setAttribute('value', element);
+                optEl.innerText = element;
+                selEl.appendChild(optEl);
+              });
+              let optEl = document.createElement("option");
+              optEl.setAttribute('value', 'All Dealers');
+              optEl.innerText = 'All Dealers';
+              selEl.appendChild(optEl);
+
+              let dealers = document.getElementById('dealers');
+              while (dealers.firstChild) {
+                dealers.removeChild(dealers.firstChild);
+              }
+              dealers.appendChild(selEl);
+            } else {
+              console.error("Unexpected response structure:", res.data);
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching dealers:", error);
+          });
+      }
+    }
+
+    let getDealerProductPrice = () => {
+      let prodvalToFetch = document.getElementById("selProd").value;
+      let dealervalToFetch = document.getElementById("selDealer").value;
+
+      let pricingEl = document.getElementById("pricing");
+      while (pricingEl.firstChild) {
+        pricingEl.removeChild(pricingEl.firstChild);
+      }
+
+      if (dealervalToFetch != 'All Dealers') {
+        axios.get(dealerurl + "price/" + dealervalToFetch + "/" + prodvalToFetch)
+          .then(res => {
+            if (res.data && res.data.message) {
+              document.getElementById("pricing").innerText = res.data.message;
+            } else {
+              console.error("Unexpected response structure:", res.data);
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching dealer price:", error);
+          });
+      } else {
+        axios.get(dealerurl + "allprice/" + prodvalToFetch)
+          .then(res => {
+            if (res.data && res.data.prices) {
+              let table = document.createElement("table");
+
+              res.data.prices.forEach(price => {
+                let tr = document.createElement("tr");
+                tr.innerHTML = "<td>" + price.key + "</td><td>" + price.value + "</td>";
+                table.appendChild(tr);
+              });
+
+              if (table.hasChildNodes()) {
+                pricingEl.appendChild(table);
+              }
+            } else {
+              console.error("Unexpected response structure:", res.data);
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching all dealer prices:", error);
+          });
+      }
+    }
+  </script>
+  <h1>
+    Products price comparison
+    <div style='margin:6mm' id='prod_dd'></div>
+    <div style='margin:6mm' id='dealers'></div>
+    <div style='margin:6mm;font-size: large;' id='pricing'></div>
+  </h1>
+</html>
