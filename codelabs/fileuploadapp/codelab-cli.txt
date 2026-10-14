@@ -1,0 +1,50 @@
+$ npm init -y
+Wrote to /home/project/commit-to-chaos/codelabs/fileuploadapp/package.json:
+
+{
+  "name": "fileuploadapp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
+
+
+
+[theia: fileuploadapp]
+$ echo "node_modules/" >> .gitignore
+[theia: fileuploadapp]
+$ npm install express multer
+
+added 73 packages, and audited 74 packages in 2s
+
+29 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+[theia: fileuploadapp]
+$ 
+[theia: fileuploadapp]
+$ nano fileuploadapp.js
+[theia: fileuploadapp]
+$ nano index.html
+[theia: fileuploadapp]
+$ mkdir uploads
+[theia: fileuploadapp]
+$ node fileuploadapp.js
+Server is running on http://localhost:3000
+Uploaded file: {
+  fieldname: 'file',
+  originalname: 'testupload.txt',
+  encoding: '7bit',
+  mimetype: 'text/plain',
+  path: 'uploads/testupload.txt',
+  destination: 'uploads/',
+  filename: 'testupload.txt',
+  size: 5
+}
